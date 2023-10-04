@@ -43,7 +43,8 @@ $(NAME):	$(OBJ)
 clean:
 			@if [ -d "./bin" ]; then \
 				$(RM) $(OBJ:%=bin/%) \
-				rmdir ./bin\
+				rmdir ./bin ;\
+			fi
 
 fclean:		clean
 			@$(RM) $(NAME)

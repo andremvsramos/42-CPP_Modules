@@ -1,12 +1,14 @@
-NAME	=	account
+NAME	=	BraiiiiiiinnnzzzZ
 
 #----------DIRS----------#
 
 DIR		=	.
 HEADER	=	./headers/.
 
-SRC		=	src/tests.cpp \
-			src/Account.cpp \
+SRC		=	src/main.cpp \
+			src/newZombie.cpp \
+			src/randomChump.cpp \
+			src/Zombie.cpp \
 
 #----------COMMANDS----------#
 
@@ -24,7 +26,7 @@ CYAN	=	\033[1;36m
 RED		=	\033[0;31m
 
 #--------ART & TEXT--------#
-MS		=	" [ Compiled The Job Of Your Dreams ] "
+MS		=	" [ Compiled BraiiiiiiinnnzzzZ ] "
 
 #----------RULES----------#
 
@@ -44,7 +46,7 @@ $(NAME):	$(OBJ)
 clean:
 			@if [ -d "./bin" ]; then \
 				$(RM) $(OBJ:%=bin/%) \
-				rmdir ./bin;\
+				rmdir ./bin ;\
 			fi
 
 fclean:		clean
