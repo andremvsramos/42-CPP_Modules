@@ -17,7 +17,7 @@ int	main(void)
 {
 	Weapon	club = Weapon("club");
 
-	HumanA	Bob("Bob", &club);
+	HumanA	Bob("Bob", club);
 	Bob.attack();
 	club.setType("sword");
 	Bob.attack();

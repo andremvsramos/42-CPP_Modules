@@ -26,7 +26,6 @@ class HumanB
 		~HumanB();
 		void	attack();
 		void	setWeapon(Weapon *weapon);
-
 };
 
 #endif

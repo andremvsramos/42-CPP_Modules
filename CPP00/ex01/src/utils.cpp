@@ -21,7 +21,7 @@ std::string	readInput(std::string str)
 		std::cout << str;
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << "Error: getlinen\n";
+			std::cout << "Error: getline\n";
 			exit (1);
 		}
 	}
