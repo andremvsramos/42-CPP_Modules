@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 08:05:08 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/10 09:50:44 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/10/31 08:37:42 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Point::Point() : _x(0), _y(0) {}
 
 Point::Point(float const nbr1, float const nbr2) : _x(nbr1), _y(nbr2) {}
 
-Point::Point(const Point& original) : _x(original._x), _y(original._y) {}
+Point::Point(const Point& original) : _x(original.getX()), _y(original.getY()) {}
 
 Point &Point::operator=(const Point& original) {
 	if (this == &original)

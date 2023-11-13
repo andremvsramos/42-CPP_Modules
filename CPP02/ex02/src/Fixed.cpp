@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:34:06 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/09 18:01:58 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/10/31 08:36:31 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,19 @@ bool	Fixed::operator!=(const Fixed& to_compare) {
 }
 
 Fixed	Fixed::operator+(const Fixed& to_add) {
-	return (_fpNbr + to_add.getRawBits());
+	return (toFloat() + to_add.toFloat());
 }
 
 Fixed	Fixed::operator-(const Fixed& to_sub) {
-	return (_fpNbr - to_sub.getRawBits());
+	return (toFloat() - to_sub.toFloat());
 }
 
 Fixed	Fixed::operator*(const Fixed& to_mul) {
-	return (_fpNbr * to_mul.getRawBits());
+	return (toFloat() * to_mul.toFloat());
 }
 
 Fixed	Fixed::operator/(const Fixed& to_div) {
-	return (_fpNbr / to_div.getRawBits());
+	return (toFloat() / to_div.toFloat());
 }
 
 //++a
