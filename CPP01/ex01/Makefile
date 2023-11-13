@@ -30,23 +30,19 @@ MS		=	" [ Compiled Moar brainz! ] "
 #----------RULES----------#
 
 %.o:%.cpp
-		@mkdir -p bin/$(dir $<)
-		@$(C++) $(CFLAGS) -c -I$(HEADER) $< -o bin/$*.o
+		@$(C++) $(CFLAGS) -c -I$(HEADER) $< -o $*.o
 
 
 all:		$(NAME)
+
+$(NAME):	$(OBJ)
+			@$(C++) $(CFLAGS) $(OBJ)  -o $(NAME)
 			@echo "$(GREEN)$(MS)"
 			@echo "$(CYAN) [ Generated: $(NAME) ] "
 
-$(NAME):	$(OBJ)
-			@$(C++) $(CFLAGS) $(OBJ:%=bin/%)  -o $(NAME)
-
 
 clean:
-			@if [ -d "./bin" ]; then \
-				$(RM) $(OBJ:%=bin/%) \
-				rmdir ./bin ;\
-			fi
+			@$(RM) $(OBJ)
 
 fclean:		clean
 			@$(RM) $(NAME)
