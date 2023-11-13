@@ -1,4 +1,4 @@
-NAME	=	OFC
+NAME	=	serena
 
 #----------DIRS----------#
 
@@ -6,7 +6,8 @@ DIR		=	.
 HEADER	=	./headers/.
 
 SRC		=	src/main.cpp \
-			src/Fixed.cpp \
+			src/ClapTrap.cpp \
+			src/ScavTrap.cpp \
 
 #----------COMMANDS----------#
 
@@ -24,13 +25,12 @@ CYAN	=	\033[1;36m
 RED		=	\033[0;31m
 
 #--------ART & TEXT--------#
-MS		=	" [ Compiled My First Class in Orthodox Canonical Form ] "
+MS		=	" [ Compiled Serena, my love! ] "
 
 #----------RULES----------#
 
 %.o:%.cpp
 		@$(C++) $(CFLAGS) -c -I$(HEADER) $< -o $*.o
-
 
 all:		$(NAME)
 
@@ -38,6 +38,7 @@ $(NAME):	$(OBJ)
 			@$(C++) $(CFLAGS) $(OBJ)  -o $(NAME)
 			@echo "$(GREEN)$(MS)"
 			@echo "$(CYAN) [ Generated: $(NAME) ] "
+
 
 clean:
 			@$(RM) $(OBJ)
