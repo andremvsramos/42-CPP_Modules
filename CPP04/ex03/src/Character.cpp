@@ -13,13 +13,15 @@
 #include "../headers/Character.hpp"
 
 Character::Character() : _name("default") {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		this->_inventory[i] = NULL;
+	}
 }
 
 Character::Character(std::string const &name) : _name(name) {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		this->_inventory[i] = NULL;
+	}
 }
 
 Character::Character(Character const &original) {
@@ -33,7 +35,8 @@ Character::Character(Character const &original) {
 
 Character::~Character() {
 	for (int i = 0; i < 4; i++)
-		if (this->_inventory[i]) {
+		if (this->_inventory[i] != NULL) {
+			std::cout << "enter" << std::endl;
 			delete this->_inventory[i];
 		}
 }
@@ -72,8 +75,7 @@ void Character::unequip(int idx) {
 		std::cout << "Invalid index" << std::endl;
 		return ;
 	}
-	if (this->_inventory[idx])
-		std::cout << "Unequipped " << this->_inventory[idx]->getType() << std::endl;
+	std::cout << "Unequipped " << this->_inventory[idx]->getType() << std::endl;
 	this->_inventory[idx] = NULL;
 }
 
@@ -83,7 +85,7 @@ void Character::use(int idx, ICharacter& target) {
 		std::cout << "Invalid index" << std::endl;
 		return ;
 	}
-	if (this->_inventory[idx])
+	if (this->_inventory[idx] && this->_inventory[idx]->getType() != "")
 		this->_inventory[idx]->use(target);
 	else
 		std::cout << "Empty materia slot" << std::endl;
