@@ -1,4 +1,4 @@
-NAME	=	claptrap
+NAME	=	diamond
 
 #----------DIRS----------#
 
@@ -7,6 +7,9 @@ HEADER	=	./headers/.
 
 SRC		=	src/main.cpp \
 			src/ClapTrap.cpp \
+			src/ScavTrap.cpp \
+			src/FragTrap.cpp \
+			src/DiamondTrap.cpp \
 
 #----------COMMANDS----------#
 
@@ -24,13 +27,12 @@ CYAN	=	\033[1;36m
 RED		=	\033[0;31m
 
 #--------ART & TEXT--------#
-MS		=	" [ Compiled Aaaaand... OPEN! ] "
+MS		=	" [ Compiled Now it\'s weird ] "
 
 #----------RULES----------#
 
 %.o:%.cpp
 		@$(C++) $(CFLAGS) -c -I$(HEADER) $< -o $*.o
-
 
 all:		$(NAME)
 
@@ -38,6 +40,7 @@ $(NAME):	$(OBJ)
 			@$(C++) $(CFLAGS) $(OBJ)  -o $(NAME)
 			@echo "$(GREEN)$(MS)"
 			@echo "$(CYAN) [ Generated: $(NAME) ] "
+
 
 clean:
 			@$(RM) $(OBJ)
