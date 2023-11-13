@@ -13,13 +13,15 @@
 #include "../headers/Character.hpp"
 
 Character::Character() : _name("default") {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		this->_inventory[i] = NULL;
+	}
 }
 
 Character::Character(std::string const &name) : _name(name) {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		this->_inventory[i] = NULL;
+	}
 }
 
 Character::Character(Character const &original) {
@@ -33,7 +35,7 @@ Character::Character(Character const &original) {
 
 Character::~Character() {
 	for (int i = 0; i < 4; i++)
-		if (this->_inventory[i]) {
+		if (this->_inventory[i] != NULL) {
 			std::cout << "enter" << std::endl;
 			delete this->_inventory[i];
 		}
