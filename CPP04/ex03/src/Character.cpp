@@ -34,7 +34,6 @@ Character::Character(Character const &original) {
 Character::~Character() {
 	for (int i = 0; i < 4; i++)
 		if (this->_inventory[i]) {
-			std::cout << "enter" << std::endl;
 			delete this->_inventory[i];
 		}
 }
@@ -73,7 +72,8 @@ void Character::unequip(int idx) {
 		std::cout << "Invalid index" << std::endl;
 		return ;
 	}
-	std::cout << "Unequipped " << this->_inventory[idx]->getType() << std::endl;
+	if (this->_inventory[idx])
+		std::cout << "Unequipped " << this->_inventory[idx]->getType() << std::endl;
 	this->_inventory[idx] = NULL;
 }
 
@@ -83,7 +83,7 @@ void Character::use(int idx, ICharacter& target) {
 		std::cout << "Invalid index" << std::endl;
 		return ;
 	}
-	if (this->_inventory[idx] && this->_inventory[idx]->getType() != "")
+	if (this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 	else
 		std::cout << "Empty materia slot" << std::endl;
