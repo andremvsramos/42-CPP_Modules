@@ -58,6 +58,8 @@ int main() {
 
 			me->unequip(3);
 			me->use(3, *bob);
+			me->equip(tmp);
+			me->use(3, *bob);
 			std::cout << std::endl;
 
 		std::cout << "Should print \"Invalid index\" twice" << std::endl;
@@ -66,8 +68,13 @@ int main() {
 			std::cout << std::endl;
 
 	delete bob;
+	std::cout << "bob deleted" << std::endl;
+	delete tmp;
+	std::cout << "tmp deleted" << std::endl;
 	delete me;
+	std::cout << "me deleted" << std::endl;
 	delete src;
+	std::cout << "src deleted" << std::endl;
 
 	return 0;
 }

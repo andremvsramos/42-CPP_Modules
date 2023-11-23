@@ -26,16 +26,23 @@ Dog::~Dog() {
 
 Dog::Dog(Dog const &original) : Animal(original) {
 	std::cout << "Dog copy constructor called\n";
-	*this = original;
+	_brain = new Brain(*original._brain);
+	// _brain = original._brain; Shallow copy example
 }
 
 Dog &Dog::operator=(Dog const &original) {
 	std::cout << "Dog assignation operator called\n";
-	if (this != &original)
+	if (this != &original) {
 		this->setType(original.getType());
+		_brain = new Brain(*original._brain);
+	}
 	return (*this);
 }
 
 void	Dog::makeSound() const {
 	std::cout << "Woof woof\n";
+}
+
+void	Dog::getBrain() const {
+	std::cout << "Dog Brain is: " << _brain << std::endl;
 }

@@ -26,21 +26,18 @@ Dog::~Dog() {
 
 Dog::Dog(Dog const &original) : Animal(original) {
 	std::cout << "Dog copy constructor called\n";
+	_brain = new Brain(*original._brain);
 }
 
 Dog &Dog::operator=(Dog const &original) {
 	std::cout << "Dog assignation operator called\n";
-	if (this != &original)
+	if (this != &original) {
 		this->setType(original.getType());
+		_brain = new Brain(*original._brain);
+	}
 	return (*this);
 }
 
 void	Dog::makeSound() const {
 	std::cout << "Woof woof\n";
-}
-
-Dog	*Dog::clone() const {
-	Dog	*dog = new Dog(*this);
-	dog->_brain = new Brain(*this->_brain);
-	return (dog);
 }

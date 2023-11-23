@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:25:02 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/16 11:19:15 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:31:15 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@
 
 class ScavTrap : ClapTrap
 {
-
-    private:
-
-
     public:
+        ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(const ScavTrap& original);
         ScavTrap&    operator=(const ScavTrap& original);

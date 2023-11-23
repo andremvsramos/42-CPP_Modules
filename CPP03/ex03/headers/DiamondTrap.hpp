@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:42:01 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/30 11:29:17 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:37:47 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 class DiamondTrap : public virtual FragTrap, public virtual ScavTrap
 {
-
     private:
         std::string _name;
 

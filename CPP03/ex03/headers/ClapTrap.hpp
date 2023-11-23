@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:57:29 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/30 11:16:30 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:22:37 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string		_name;
 		int				_hp;
 		int				_mp;

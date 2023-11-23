@@ -29,7 +29,6 @@ class Animal
 		Animal &operator=(Animal const &original);
 		void			setType(std::string type);
 		std::string		getType() const;
-		virtual Animal *clone() const = 0;
 		virtual void	makeSound() const = 0;
 };
 

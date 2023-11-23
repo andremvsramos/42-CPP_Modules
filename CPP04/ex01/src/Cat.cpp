@@ -26,16 +26,22 @@ Cat::~Cat() {
 
 Cat::Cat(Cat const &original) : Animal(original) {
 	std::cout << "Cat copy constructor called\n";
-	*this = original;
+	_brain = new Brain(*original._brain);
 }
 
 Cat &Cat::operator=(Cat const &original) {
 	std::cout << "Cat assignation operator called\n";
-	if (this != &original)
+	if (this != &original) {
 		this->setType(original.getType());
+		_brain = new Brain(*original._brain);
+	}
 	return (*this);
 }
 
 void	Cat::makeSound() const {
 	std::cout << "Meow meow\n";
+}
+
+void	Cat::getBrain() const {
+	std::cout << "Cat brain is: " << _brain << std::endl;
 }

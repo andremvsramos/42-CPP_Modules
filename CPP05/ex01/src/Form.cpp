@@ -12,13 +12,27 @@
 
 #include "../headers/Form.hpp"
 
-/*===Constructors===*/
+/* ===================== Orthodox Canonical Form ===================== */
 
 Form::Form() :
 	_name("Default"), _signed(false),
 	_requiredGradeToSign(MIN_GRADE), _requiredGradeToExecute(MIN_GRADE) {}
 
+Form::Form(const Form& original) :
+	_name(original._name), _signed(original._signed),
+	_requiredGradeToSign(original._requiredGradeToSign),
+	_requiredGradeToExecute(original._requiredGradeToExecute) {}
+
+Form &Form::operator=(const Form& original) {
+	if (this == &original)
+		return (*this);
+	this->_signed = original._signed;
+	return (*this);
+}
+
 Form::~Form() {}
+
+/* ===================== Constructors ===================== */
 
 Form::Form(const std::string& name, int toSign, int toExec) :
 	_name(name), _signed(false),
@@ -29,20 +43,7 @@ Form::Form(const std::string& name, int toSign, int toExec) :
 			throw Form::GradeTooLowException();
 	}
 
-Form::Form(const Form& original) :
-	_name(original._name), _signed(original._signed),
-	_requiredGradeToSign(original._requiredGradeToSign),
-	_requiredGradeToExecute(original._requiredGradeToExecute) {}
-
-
-Form &Form::operator=(const Form& original) {
-	if (this == &original)
-		return (*this);
-	this->_signed = original._signed;
-	return (*this);
-}
-
-/*===Getters===*/
+/* ===================== Getter functions ===================== */
 
 const std::string Form::getName() const {
 	return (this->_name);
@@ -60,7 +61,7 @@ int Form::getRequiredGradeToExecute() const {
 	return (this->_requiredGradeToExecute);
 }
 
-/*===Exceptions===*/
+/* ===================== Exceptions ===================== */
 
 const char *Form::GradeTooHighException::what() const throw() {
 	return ("Form exception: Grade Too High");
@@ -70,8 +71,17 @@ const char *Form::GradeTooLowException::what() const throw() {
 	return ("Form exception: Grade Too Low");
 }
 
+/* ===================== Overloaders ===================== */
 
-/*===Member Functions===*/
+std::ostream &operator<<(std::ostream &os, const Form& form) {
+	os << form.getName() << ", signed: " << form.getSigned()
+		<< ", grade required to sign: " << form.getRequiredGradeToSign()
+		<< ", grade required to execute: " << form.getRequiredGradeToExecute()
+		<< std::endl;
+	return (os);
+}
+
+/* ===================== Member functions ===================== */
 
 void Form::beSigned(Bureaucrat& bureaucrat) {
 	if (this->_signed) {
@@ -89,12 +99,3 @@ void Form::beSigned(Bureaucrat& bureaucrat) {
 	}
 }
 
-/*===Overload Operators===*/
-
-std::ostream &operator<<(std::ostream &os, const Form& form) {
-	os << form.getName() << ", signed: " << form.getSigned()
-		<< ", grade required to sign: " << form.getRequiredGradeToSign()
-		<< ", grade required to execute: " << form.getRequiredGradeToExecute()
-		<< std::endl;
-	return (os);
-}

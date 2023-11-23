@@ -35,8 +35,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &original) {
 
 MateriaSource::~MateriaSource() {
 	for (int i = 0; i < 4; i++)
-		if (this->_materia[i])
-			delete this->_materia[i];
+		delete this->_materia[i];
 }
 
 void MateriaSource::learnMateria(AMateria *materia) {
@@ -53,7 +52,7 @@ void MateriaSource::learnMateria(AMateria *materia) {
 AMateria *MateriaSource::createMateria(std::string const &type) {
 	for (int i = 0; i < 4; i++) {
 		if (this->_materia[i] && this->_materia[i]->getType() == type)
-			return (std::cout << "Materia created" << std::endl, this->_materia[i]->clone());
+			return (std::cout << this->_materia[i]->getType() << " Materia created" << std::endl, this->_materia[i]->clone());
 	}
 	std::cout << "Materia not found" << std::endl;
 	return (0);

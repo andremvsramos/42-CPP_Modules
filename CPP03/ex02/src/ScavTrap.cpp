@@ -6,11 +6,19 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:29:26 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/16 11:28:54 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:32:01 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ScavTrap.hpp"
+
+ScavTrap::ScavTrap () : ClapTrap() {
+   std::cout << "---Default ScavTrap has been created---\n";
+    setName("Default");
+    setHP(100);
+    setMP(50);
+    setATK(20);
+}
 
 ScavTrap::ScavTrap (std::string name) : ClapTrap(name) {
     this->setHP(100);

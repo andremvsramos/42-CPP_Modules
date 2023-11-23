@@ -22,7 +22,7 @@ WrongAnimal::WrongAnimal(std::string type) {
 }
 
 WrongAnimal::~WrongAnimal() {
-	if (this->getType() != "empty")
+	if (this->getType() == "empty")
 		std::cout << "Empty WrongAnimal destructor called\n";
 	else
 		std::cout << "WrongAnimal destructor called\n";

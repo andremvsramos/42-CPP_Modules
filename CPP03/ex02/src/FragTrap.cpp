@@ -1,5 +1,13 @@
 #include "../headers/FragTrap.hpp"
 
+FragTrap::FragTrap () : ClapTrap() {
+    std::cout << "---Default FragTrap has been created---\n";
+    setName("Default");
+    setHP(100);
+    setMP(100);
+    setATK(30);
+}
+
 FragTrap::FragTrap (std::string name) : ClapTrap(name) {
     this->setHP(100);
     this->setMP(100);

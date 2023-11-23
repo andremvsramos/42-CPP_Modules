@@ -17,15 +17,12 @@
 
 class Cure : public AMateria
 {
-	private:
-		std::string	_type;
-
 	public:
 		Cure();
 		Cure(Cure const &original);
 		virtual ~Cure();
 		Cure &operator=(Cure const &original);
-		Cure* clone() const;
+		AMateria* clone() const;
 		void use(ICharacter& target);
 };
 

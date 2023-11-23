@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:57:29 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/10 11:51:10 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:32:34 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
 		int				_atk;
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& original);
 		ClapTrap&	operator=(const ClapTrap& original);

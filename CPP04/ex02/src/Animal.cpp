@@ -48,5 +48,5 @@ std::string	Animal::getType() const {
 }
 
 void	Animal::makeSound() const {
-	std::cout << "Animal sound\n";
+	std::cout << "No Animal sound\n";
 }

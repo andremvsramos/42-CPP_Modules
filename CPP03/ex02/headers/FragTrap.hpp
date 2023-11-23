@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:50:02 by andvieir          #+#    #+#             */
-/*   Updated: 2023/10/18 17:55:51 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:34:12 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 class FragTrap : ClapTrap
 {
-
-    private:
-
     public:
+        FragTrap();
         FragTrap(std::string name);
         FragTrap(const FragTrap& original);
         FragTrap&    operator=(const FragTrap& original);

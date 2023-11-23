@@ -24,9 +24,8 @@ class AMateria
 		std::string	_type;
 
 	public:
-		AMateria(std::string const & type);
 		AMateria();
-		AMateria(std::string const & type, std::string const & textAction);
+		AMateria(std::string const & type);
 		AMateria(AMateria const &original);
 		virtual ~AMateria();
 		AMateria &operator=(AMateria const &original);
