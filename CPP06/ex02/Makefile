@@ -1,4 +1,4 @@
-NAME	=	ScalarConverter
+NAME	=	Identify
 
 #----------DIRS----------#
 
@@ -6,7 +6,10 @@ DIR		=	.
 HEADER	=	./headers/.
 
 SRC		=	src/main.cpp \
-			src/ScalarConverter.cpp \
+			src/Base.cpp \
+			src/A.cpp \
+			src/B.cpp \
+			src/C.cpp \
 
 #----------COMMANDS----------#
 
@@ -24,7 +27,7 @@ CYAN	=	\033[1;36m
 RED		=	\033[0;31m
 
 #--------ART & TEXT--------#
-MS		=	" [ Compiled Conversion of scalar types ] "
+MS		=	" [ Compiled Identify real type ] "
 
 #----------RULES----------#
 

@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ScalarConverter.hpp"
+#include "../headers/iter.hpp"
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-		return (0);
-	ScalarConverter::convert(static_cast<std::string>(av[1]));
-	return (0);
+int main( void ) {
+	int tab[] = { 0, 1, 2, 3, 4 };
+	iter( tab, 5, address );
+	return 0;
 }

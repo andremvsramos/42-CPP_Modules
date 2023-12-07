@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:14:51 by andvieir          #+#    #+#             */
-/*   Updated: 2023/11/22 11:13:10 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:10:54 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ ScalarConverter::ScalarConverter () {}
 
 ScalarConverter::ScalarConverter (const ScalarConverter& original) {
     static_cast<void>(original);
-    return (*this);
 }
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter& original) {
@@ -99,7 +98,7 @@ ScalarConverter::~ScalarConverter () {}
                 if (checkOverflow(str, CHAR))
                     std::cout << "Char: Overflow" << std::endl;
                 else if (isprint(c))
-                    std::cout << "Char: " << c << std::endl;
+                    std::cout << "Char: '" << c << "'" << std::endl;
                 else
                     std::cout << "Char: Non displayable" << std::endl;
             }
@@ -149,16 +148,16 @@ ScalarConverter::~ScalarConverter () {}
             /* ===================== Overflow security ===================== */
 
             bool    ScalarConverter::checkOverflow(const std::string & str, const t_type type) {
-                long double num = std::stold(str);
+                long double num = std::strtold(str.c_str(), NULL);
                 switch (type) {
                     case CHAR:
-                        return (num > std::numeric_limits<char>::max() || num < std::numeric_limits<char>::min())
+                        return (num > std::numeric_limits<char>::max() || num < std::numeric_limits<char>::min());
                     case INT:
-                        return (num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min())
+                        return (num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min());
                     case FLOAT:
-                        return (num >, std::numeric_limits<float>::max() || num < -std::numeric_limits<float>::min())
+                        return (num > std::numeric_limits<float>::max() || num < -std::numeric_limits<float>::max());
                     case DOUBLE:
-                        return (num > std::numeric_limits<double>::max() || num < -std::numeric_limits<double>::min())
+                        return (num > std::numeric_limits<double>::max() || num < -std::numeric_limits<double>::max());
                     default:
                         return (false);
                 }

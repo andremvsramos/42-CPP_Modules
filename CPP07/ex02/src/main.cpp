@@ -10,12 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ScalarConverter.hpp"
+#include "../headers/Array.hpp"
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-		return (0);
-	ScalarConverter::convert(static_cast<std::string>(av[1]));
-	return (0);
+int main( void ) {
+
+	Array<int>	T(5);
+
+	std::cout << T << std::endl;
+	for (unsigned int i = 0; i < T.size(); i++)
+		T[i] = i;
+	std::cout << T << std::endl;
+	try {
+		for (int i = 50; i < 56; i++)
+			T[i] = i;
+		std::cout << T << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	return 0;
 }

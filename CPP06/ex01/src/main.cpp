@@ -10,12 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ScalarConverter.hpp"
+#include "../headers/Serializer.hpp"
 
-int	main(int ac, char **av)
+std::string	readInput(std::string str)
 {
-	if (ac != 2)
-		return (0);
-	ScalarConverter::convert(static_cast<std::string>(av[1]));
+	std::string	input;
+
+	while (input.empty())
+	{
+		std::cout << str;
+		if (!std::getline(std::cin, input))
+		{
+			std::cout << "Error: getline\n";
+			exit (1);
+		}
+	}
+	return (input);
+}
+
+int	main()
+{
+	Data	*data = new Data;
+	data->secretMessage = readInput("Enter a secret message: ");
+	data->hiddenChars = data->secretMessage.length();
+	uintptr_t zip = Serializer::serialize(data);
+	std::cout << "Original data: " << data->secretMessage << std::endl;
+	std::cout << "Original data: " << data->hiddenChars << std::endl;
+	std::cout << "Serialized data: " << zip << std::endl;
+	data = Serializer::deserialize(zip);
+	std::cout << "Deserialized data: " << data->secretMessage << std::endl;
+	std::cout << "Deserialized data: " << data->hiddenChars << std::endl;
+	delete data;
 	return (0);
 }

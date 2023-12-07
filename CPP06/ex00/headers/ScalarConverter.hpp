@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:14:48 by andvieir          #+#    #+#             */
-/*   Updated: 2023/11/22 11:11:01 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:56:43 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
+# include <stdlib.h>
 # include <limits>
 # pragma once
 

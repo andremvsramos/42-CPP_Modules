@@ -10,12 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ScalarConverter.hpp"
+#include "../headers/Base.hpp"
+#include <unistd.h>
 
-int	main(int ac, char **av)
+int	main()
 {
-	if (ac != 2)
-		return (0);
-	ScalarConverter::convert(static_cast<std::string>(av[1]));
+	std::srand(std::time(NULL));
+	Base *base = generate();
+	std::cout << "Identify by pointer: ";
+		identify(base);
+	std::cout << "Identify by reference: ";
+		identify(*base);
+	delete base;
+	sleep(1);
+	base = generate();
+	std::cout << "Identify by pointer: ";
+		identify(base);
+	std::cout << "Identify by reference: ";
+		identify(*base);
+	delete base;
+	sleep(1);
+	base = generate();
+	std::cout << "Identify by pointer: ";
+		identify(base);
+	std::cout << "Identify by reference: ";
+		identify(*base);
+	delete base;
 	return (0);
 }

@@ -5,6 +5,9 @@
 		"iosfwd": "cpp",
 		"iomanip": "cpp",
 		"ostream": "cpp",
-		"new": "cpp"
+		"new": "cpp",
+		"limits": "cpp",
+		"chrono": "cpp",
+		"*.tpp": "cpp"
 	}
 }
