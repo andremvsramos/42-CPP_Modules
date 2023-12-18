@@ -8,6 +8,7 @@
 		"new": "cpp",
 		"limits": "cpp",
 		"chrono": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"vector": "cpp"
 	}
 }
