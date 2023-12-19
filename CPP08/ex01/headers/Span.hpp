@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:57:57 by andvieir          #+#    #+#             */
-/*   Updated: 2023/12/18 19:55:03 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:11:39 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Span
         void shortestSpan();
         void longestSpan();
         void fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        void fillSpan();
 
         size_t getVectorSize();
         unsigned int     getN();
@@ -59,5 +60,7 @@ class Span
         };
 
 };
+
+int  RandomNumberGenerator();
 
 #endif

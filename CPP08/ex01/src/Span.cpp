@@ -6,7 +6,7 @@
 /*   By: andvieir <andvieir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:59:00 by andvieir          #+#    #+#             */
-/*   Updated: 2023/12/18 19:57:31 by andvieir         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:12:39 by andvieir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void Span::fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator
     _values.insert(_values.end(), begin, end);
 }
 
+void Span::fillSpan() {
+    _values.resize(N);
+    std::generate(_values.begin(), _values.end(), RandomNumberGenerator);
+}
+
 void Span::printVector() {
     std::vector<int>::iterator it;
     for (it = _values.begin(); it < _values.end(); it++) {
@@ -91,4 +96,10 @@ const char *Span::ElementLimitReachedException::what() const throw() {
 
 const char *Span::NoSpanException::what() const throw() {
     return ("No span in vector");
+}
+
+/* ===================== Non Member Functions ===================== */
+
+int RandomNumberGenerator() {
+    return (rand()%10000);
 }
