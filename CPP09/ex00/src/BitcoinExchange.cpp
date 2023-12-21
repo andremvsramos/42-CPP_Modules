@@ -15,13 +15,13 @@
 /* ===================== Orthodox Canonical Form ===================== */
 
 BitcoinExchange::BitcoinExchange() : _inName("default") {
-	_dbFile.open("../data.csv");
+	_dbFile.open("data.csv");
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange & original)
 	: _inName(original._inName) {
 	_inFile.open(_inName.c_str());
-	_dbFile.open("../data.csv");
+	_dbFile.open("data.csv");
 	_dbValues = original._dbValues;
 }
 
@@ -29,7 +29,7 @@ BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange & original) {
 	if (this != &original) {
 		_inName = original._inName;
 		_inFile.open(_inName.c_str());
-		_dbFile.open("../data.csv");
+		_dbFile.open("data.csv");
 		_dbValues = original._dbValues;
 	}
 	return (*this);
@@ -45,7 +45,7 @@ BitcoinExchange::~BitcoinExchange() {
 
 BitcoinExchange::BitcoinExchange(std::string inputFile) {
 	_inFile.open(inputFile.c_str());
-	_dbFile.open("../data.csv");
+	_dbFile.open("data.csv");
 }
 
 /* ===================== Member Functions ===================== */
@@ -57,7 +57,7 @@ void BitcoinExchange::dbConversion() {
 	std::string	sValue;
 	float		value;
 	size_t		commaPos;
-	while (!readFile(_dbFile).empty()) {
+	while (!(dbContent = readFile(_dbFile)).empty()) {
 		commaPos = dbContent.find(",");
 		date = dbContent.substr(0, commaPos);
 		sValue = dbContent.substr(commaPos + 1, dbContent.size());
