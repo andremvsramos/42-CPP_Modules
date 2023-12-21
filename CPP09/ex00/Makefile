@@ -27,6 +27,7 @@ RESET	=	$(shell tput sgr0)
 #--------ART & TEXT--------#
 MS		=	" [ Compiled Bitcoin Exchange ] "
 
+
 #----------RULES----------#
 
 %.o:%.cpp
@@ -48,6 +49,10 @@ fclean:		clean
 aclean:		all clean
 
 runtime: 	$(NAME)
-			@/usr/bin/time -f "$(YELLOW)\nElapsed time: %es$(RESET)" ./$(NAME)
+ifdef ARG
+	@/usr/bin/time -f "$(YELLOW)\nElapsed time: %es$(RESET)" ./$(NAME) $(ARG)
+else
+	@echo "$(RED) Please provide an argument for this exercise"
+endif
 
 re:			fclean all

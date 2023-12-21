@@ -36,7 +36,15 @@ class BitcoinExchange {
 
 		BitcoinExchange(std::string	inputFile);
 
+		void	doExchange();
 		void	dbConversion();
+		void	inputConversion();
+		std::string	checkDates(const std::string & input);
+		float	checkValue(const std::string & input);
+
+		void	exchangeRate(std::string dateToSearch, float valueToExchange);
+
+		bool	isLeapYear(int year);
 
 		class	FileOpeningException : public std::exception {
 			public:
@@ -45,6 +53,24 @@ class BitcoinExchange {
 
 		class	ReadFileException : public std::exception {
 			public:
+				virtual const char *what() const throw();
+		};
+
+		class	InvalidDateException : public std::exception {
+			private:
+				std::string	_errorMsg;
+			public:
+				InvalidDateException(const std::string & error);
+				~InvalidDateException() throw();
+				virtual const char *what() const throw();
+		};
+
+		class	InvalidValueException : public std::exception {
+			private:
+				std::string _errorMsg;
+			public:
+				InvalidValueException(const std::string & error);
+				~InvalidValueException() throw();
 				virtual const char *what() const throw();
 		};
 };

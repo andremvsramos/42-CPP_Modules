@@ -12,15 +12,13 @@
 
 #include "../headers/BitcoinExchange.hpp"
 
-int	main() {
-
-	BitcoinExchange	btc;
-
-	try {
-		btc.dbConversion();
-	} catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
+int	main(int ac, char **av) {
+	if (ac != 2) {
+		std::cerr << "Wrong number of arguments" << std::endl;
+		return (EXIT_FAILURE);
 	}
-
-	return (0);
+	std::string		input(av[1]);
+	BitcoinExchange	btc(input);
+	btc.doExchange();
+	return (EXIT_SUCCESS);
 }
